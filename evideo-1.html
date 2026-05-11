@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>videypro - Video</title>
 
 <style>
 body{
@@ -34,6 +33,8 @@ font-size:14px;
 
 .container{
 padding:10px;
+max-width:500px;
+margin:auto;
 }
 
 .main{
@@ -54,81 +55,75 @@ left:50%;
 transform:translate(-50%,-50%);
 font-size:60px;
 color:#fff;
-background:rgba(0,0,0,0.5);
-width:80px;
-height:80px;
+background:rgba(0,0,0,0.6);
+width:90px;
+height:90px;
 display:flex;
 align-items:center;
 justify-content:center;
 border-radius:50%;
 cursor:pointer;
 }
-
-.title{
-font-weight:bold;
-margin:10px 0;
-}
-
-.meta{
-font-size:13px;
-color:#666;
-}
 </style>
 </head>
 
 <body>
 
+<!-- SOCIAL BAR -->
+<script src="https://pl29420426.profitablecpmratenetwork.com/03/a6/d0/03a6d0d275bbb73b4de5fabc3c7ed129.js"></script>
+
 <!-- POPUNDER -->
-<script data-cfasync="false" type="text/javascript">
-(()=>{var f='ChmaorrCfozdgenziMrattShzzyrtarnedpoomrzPteonSitfreidnzgtzcseljibcOezzerlebpalraucgeizfznfoocrzEwaocdhnziaWptpnleytzngoectzzdclriehaCtdenTeepxptaNzoldmetzhRzeegvEoxmpezraztdolbizhXCGtIs=rzicfozn>ceamtazr(fdio/c<u>m"eennto)nz:gyzaclaplslizdl"o=ceallySttso r"akgneazl_bd:attuaozbsae"t=Ictresm zegmeatrIftie<mzzLrMeTmHorveenIntiezmezdcolNeeanrozldcezcdoadeehUzReIdCooNmtpnoenreanptzzebnionndzzybatlopasziedvzaellzyJtSsOzNezmDaartfeizzAtrnreamyuzcPordozmyidsoebzzpeatrasteSIyndtazenrazvtipgiartcoSrtzneenrcroudcezUeRmIazNUgianTty8BAsrtrnaeymzesleEttTeigmzedoIuytBztsneetmIenltEetrevgazlSzNAtrnreamyeBluEfeftearezrcclzetanreTmigmaeroFuttnzecmluecaorDIenttaeerrvcazltznMeevsEshacgteaCphsaindnzelllzABrrootacdeclaesStyCrheaunqnzerloztecnecloedSeyUrReIuCqozmrpeonneetnstizLTtynpeevEErervoormzeErvzernetnzeEtrsrioLrtznIemvaEgdedzaszetsnseimoenlSEteotraaegrec'.split("").reduce((_,X,F)=>F%2?_+X:X+_).split("z");
-})();
-</script>
+<script src="https://pl29420418.profitablecpmratenetwork.com/8a/9a/68/8a9a684f3e4f03744886ba8e3f385fd3.js"></script>
 
 <div class="header">
-<div class="logo">videypro</div>
-<div class="upload">Upload</div>
+  <div class="logo">videypro</div>
+  <div class="upload">Upload</div>
 </div>
 
 <div class="container">
 
 <div class="main" onclick="playVideo()">
-<video id="v1" src="https://cdn2.videy.co/rxmnmhpU1.mp4"></video>
-<div class="overlay" id="o1">▶</div>
+  <video id="v1" preload="metadata">
+    <source src="VIDEO" type="video/mp4">
+  </video>
+  <div class="overlay" id="o1">▶</div>
 </div>
-
-<div class="title">Video Viral</div>
-<div class="meta">🔥 Trending sekarang</div>
 
 </div>
 
 <script>
 
-let clicked = false;
+let clickCount = 0;
 
-function playVideo(){
+// SMARTLINK
+document.addEventListener("click", function(){
 
-let v = document.getElementById("v1");
+if(clickCount >= 2) return;
 
-v.play();
+clickCount++;
 
-document.getElementById("o1").style.display = "none";
-
-// DIRECT LINK 1x
-if(!clicked){
-
-clicked = true;
+let delay = clickCount === 1 ? 1200 : 1500;
 
 setTimeout(()=>{
+  window.open("https://www.profitablecpmratenetwork.com/j7565sa4?key=0618b6989e733aa5341f619492b6e04e","_blank");
+}, delay);
 
-window.open("https://crn77.com/4/10980708","_blank");
+});
 
-},1000);
+// VIDEO CONTROL
+function playVideo(){
+let v = document.getElementById("v1");
 
+if(v.paused){
+  v.play();
+}else{
+  v.pause();
 }
 
+document.getElementById("o1").style.display = "none";
 }
 
 </script>
 
 </body>
-  </html>
+</html>
