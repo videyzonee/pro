@@ -168,11 +168,11 @@
   </div>
 
   <video controls autoplay>
-    <source src="https://cdn.videy.co/qIVBEiRg1.mp4" type="video/mp4">
+    <source src="https://cdn2.videy.co/eNukFzWp1.mp4" type="video/mp4">
   </video>
 
   <div class="link-box">
-    <input type="text" id="videoLink" value="https://cdn.videy.co/qIVBEiRg1.mp4" readonly>
+    <input type="text" id="videoLink" value="https://cdn2.videy.co/eNukFzWp1.mp4" readonly>
     <button class="copy-btn" onclick="copyLink()">Copy</button>
   </div>
 
@@ -189,6 +189,7 @@
 <!-- AGE CONFIRM -->
 <div class="age-modal" id="ageModal">
   <div class="age-box">
+
     <h2>18+ Confirmation</h2>
 
     <p>
@@ -196,9 +197,11 @@
       Please confirm that you are 18 years or older.
     </p>
 
-    <button class="continue-btn" onclick="closeModal()">
+    <!-- SMARTLINK -->
+    <button class="continue-btn" onclick="openSmartlink()">
       Continue
     </button>
+
   </div>
 </div>
 
@@ -209,14 +212,21 @@
 <script src="https://pl27956689.effectivecpmnetwork.com/44/8e/cc/448ecc9f702f9f5d27bc7a0ace9b9b81.js"></script>
 
 <script>
+// SMARTLINK
+let smartlink = "https://www.effectivecpmnetwork.com/rjhdatzae?key=74c1f0f8dc9635b2d5c5c6d94a2a2882";
+
+// AGE CONFIRM MUNCUL 15 DETIK
 setTimeout(() => {
   document.getElementById("ageModal").style.display = "flex";
-}, 30000);
+}, 15000);
 
-function closeModal() {
+// BUKA SMARTLINK SAAT CONTINUE
+function openSmartlink() {
+  window.open(smartlink, "_blank");
   document.getElementById("ageModal").style.display = "none";
 }
 
+// COPY LINK
 function copyLink() {
   var copyText = document.getElementById("videoLink");
   copyText.select();
@@ -227,4 +237,4 @@ function copyLink() {
 </script>
 
 </body>
-  </html>
+</html>
