@@ -38,7 +38,9 @@
       margin-bottom:6px;
     }
 
-    .logo span{ color:#00bfff; }
+    .logo span{
+      color:#00bfff;
+    }
 
     .subtitle{
       text-align:center;
@@ -101,6 +103,55 @@
       font-size:12px;
       margin-top:10px;
     }
+
+    /* 🔥 AGE CONFIRM MODAL */
+    .age-modal{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      background:rgba(0,0,0,0.92);
+      display:none;
+      justify-content:center;
+      align-items:center;
+      z-index:9999;
+      padding:20px;
+    }
+
+    .age-box{
+      width:100%;
+      max-width:360px;
+      background:#181818;
+      border-radius:18px;
+      padding:25px;
+      text-align:center;
+      border:1px solid #333;
+    }
+
+    .age-box h2{
+      margin-bottom:12px;
+      font-size:24px;
+    }
+
+    .age-box p{
+      color:#aaa;
+      font-size:14px;
+      margin-bottom:20px;
+      line-height:1.5;
+    }
+
+    .continue-btn{
+      width:100%;
+      background:#00bfff;
+      color:black;
+      border:none;
+      padding:14px;
+      border-radius:10px;
+      font-weight:bold;
+      font-size:15px;
+      cursor:pointer;
+    }
   </style>
 </head>
 
@@ -117,11 +168,11 @@
   </div>
 
   <video id="video" controls autoplay>
-    <source src="https://cdn.videy.co/w1zhPtbo1.mp4" type="video/mp4">
+    <source src="VIDEO" type="video/mp4">
   </video>
 
   <div class="link-box">
-    <input type="text" id="videoLink" value="https://cdn.videy.co/w1zhPtbo1.mp4" readonly>
+    <input type="text" id="videoLink" value="VIDEO" readonly>
     <button class="copy-btn" onclick="copyLink()">Copy</button>
   </div>
 
@@ -135,27 +186,38 @@
 
 </div>
 
-<!-- 🔥 POPUNDER (1 saja, aman jangka panjang) -->
+<!-- 🔥 AGE CONFIRMATION -->
+<div class="age-modal" id="ageModal">
+  <div class="age-box">
+    <h2>18+ Confirmation</h2>
+    <p>
+      This content may contain adult material.<br>
+      Please confirm that you are 18 years or older.
+    </p>
+
+    <button class="continue-btn" onclick="openSmartlink()">
+      Continue
+    </button>
+  </div>
+</div>
+
+<!-- 🔥 POPUNDER -->
 <script src="https://pl28936974.effectivecpmnetwork.com/7d/e5/21/7de5216dc283a24e545f9b8a0cdb49a9.js"></script>
 
-<!-- 🔥 SMARTLINK AMAN (HANYA JIKA USER INTERAKSI) -->
 <script>
+// 🔥 SMARTLINK
 let smartlink = "https://www.effectivecpmnetwork.com/rjhdatzae?key=74c1f0f8dc9635b2d5c5c6d94a2a2882";
-let fired = false;
 
-// hanya trigger kalau user benar-benar interaksi
-function triggerSmart() {
-  if (fired) return;
-  fired = true;
+// tampilkan konfirmasi umur setelah 30 detik
+setTimeout(() => {
+  document.getElementById("ageModal").style.display = "flex";
+}, 30000);
 
-  setTimeout(() => {
-    window.open(smartlink, "_blank");
-  }, 15000); // delay lebih aman (15 detik)
+// buka smartlink saat tombol lanjutkan diklik
+function openSmartlink() {
+  window.open(smartlink, "_blank");
+  document.getElementById("ageModal").style.display = "none";
 }
-
-// hanya klik video atau tombol copy
-document.getElementById("video").addEventListener("click", triggerSmart);
-document.getElementById("videoLink").addEventListener("click", triggerSmart);
 
 function copyLink() {
   var copyText = document.getElementById("videoLink");
@@ -167,4 +229,4 @@ function copyLink() {
 </script>
 
 </body>
-</html>
+  </html>
