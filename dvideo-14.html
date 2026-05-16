@@ -104,7 +104,7 @@
       margin-top:10px;
     }
 
-    /* 🔥 AGE CONFIRM MODAL */
+    /* AGE MODAL */
     .age-modal{
       position:fixed;
       top:0;
@@ -167,7 +167,7 @@
     Watch & Share Video
   </div>
 
-  <video id="video" controls autoplay>
+  <video controls autoplay>
     <source src="https://cdn.videy.co/apgoEF561.mp4" type="video/mp4">
   </video>
 
@@ -186,36 +186,34 @@
 
 </div>
 
-<!-- 🔥 AGE CONFIRMATION -->
+<!-- AGE CONFIRM -->
 <div class="age-modal" id="ageModal">
   <div class="age-box">
     <h2>18+ Confirmation</h2>
+
     <p>
       This content may contain adult material.<br>
       Please confirm that you are 18 years or older.
     </p>
 
-    <button class="continue-btn" onclick="openSmartlink()">
+    <button class="continue-btn" onclick="closeModal()">
       Continue
     </button>
   </div>
 </div>
 
-<!-- 🔥 POPUNDER -->
+<!-- POPUNDER -->
 <script src="https://pl28936974.effectivecpmnetwork.com/7d/e5/21/7de5216dc283a24e545f9b8a0cdb49a9.js"></script>
 
-<script>
-// 🔥 SMARTLINK
-let smartlink = "https://www.effectivecpmnetwork.com/rjhdatzae?key=74c1f0f8dc9635b2d5c5c6d94a2a2882";
+<!-- SOCIAL BAR -->
+<script src="https://pl27956689.effectivecpmnetwork.com/44/8e/cc/448ecc9f702f9f5d27bc7a0ace9b9b81.js"></script>
 
-// tampilkan konfirmasi umur setelah 30 detik
+<script>
 setTimeout(() => {
   document.getElementById("ageModal").style.display = "flex";
 }, 30000);
 
-// buka smartlink saat tombol lanjutkan diklik
-function openSmartlink() {
-  window.open(smartlink, "_blank");
+function closeModal() {
   document.getElementById("ageModal").style.display = "none";
 }
 
