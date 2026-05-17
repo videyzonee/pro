@@ -1,230 +1,172 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VideyStream</title>
+	<script>(function(s){s.dataset.zone='10980339',s.src='https://al5sm.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+<meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Vodul</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:Arial,sans-serif;
+    :root{
+      --bg:#ffffff; --text:#0f172a; --muted:#64748b; --line:#e2e8f0; --brand:#111827;
+      --btn:#111827; --btnText:#ffffff; --btnHover:#000000; --card:#f8fafc;
     }
 
+    *,*::before,*::after{ box-sizing:border-box }
+    html{ -webkit-text-size-adjust:100% }
+    html,body{ height:100%; margin:0 }
     body{
-      background:#0f0f0f;
-      color:white;
-      min-height:100vh;
-      display:flex;
-      justify-content:center;
-      padding:20px;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial;
+      color:var(--text); background:var(--bg); line-height:1.45;
+      overflow-x:hidden;
+    }
+    img,video,canvas,svg,iframe{ max-width:100%; height:auto; display:block }
+
+    .appbar{
+      position:sticky; top:0; z-index:20; background:rgba(255,255,255,.85);
+      backdrop-filter:saturate(180%) blur(8px); border-bottom:1px solid var(--line);
+    }
+    .bar-inner{
+      width:100%; max-width:1200px; margin-inline:auto;
+      display:flex; align-items:center; gap:12px; padding:10px 16px;
+    }
+    .brand{ display:flex; align-items:center; gap:8px; font-weight:800; letter-spacing:.2px }
+    .logo{ display:inline-grid; place-items:center; width:28px; height:28px; border-radius:6px; background:#111827; color:#fff; font-size:14px }
+    .spacer{ flex:1 }
+    .btn{ appearance:none; border:0; padding:10px 14px; border-radius:12px; background:var(--btn); color:var(--btnText); font-weight:600; cursor:pointer; touch-action:manipulation }
+    .btn:hover{ background:var(--btnHover) }
+
+    .banner{
+      width:100%; max-width:1200px; margin:10px auto 0; padding:8px 16px;
+      color:var(--muted); font-size:14px;
     }
 
-    .container{
-      width:100%;
-      max-width:520px;
-      background:#181818;
-      border-radius:20px;
-      padding:20px;
-      box-shadow:0 0 30px rgba(0,0,0,0.5);
+    .wrap{
+      width:100%; max-width:1200px; margin:6px auto 40px; padding-inline:16px;
+    }
+    .player-shell{ display:grid; place-items:center; margin-top:20px }
+
+    .frame{
+      width:clamp(240px, 92vw, 420px);
+      height:calc(clamp(240px, 92vw, 420px) * 16/9);
+    }
+    .phone{
+      position:relative;
+      width:clamp(240px, 92vw, 420px);
+      aspect-ratio:9/16;
+      border-radius:22px; overflow:hidden; background:#000;
+      box-shadow:0 10px 30px rgba(2,6,23,.15), 0 3px 10px rgba(2,6,23,.08);
+    }
+    .phone video,.phone img{ width:100%; height:100%; object-fit:cover }
+
+    .meta{
+      width:100%; max-width:760px; margin:22px auto 0; padding:0 6px;
+      text-align:center; color:var(--muted); font-size:13px;
     }
 
-    .logo{
-      text-align:center;
-      font-size:32px;
-      font-weight:bold;
-      margin-bottom:6px;
+    .ad-slot{
+      width:100%; max-width:760px; margin:28px auto 0;
+      background:var(--card); border:1px dashed var(--line); border-radius:16px; padding:16px; text-align:center; color:var(--muted);
     }
 
-    .logo span{
-      color:#00bfff;
+    @media (min-width:1024px){
+      .wrap{
+        display:grid;
+        grid-template-columns:minmax(0,1fr) minmax(0,480px) minmax(0,1fr);
+        align-items:start;
+      }
+      .player-shell{ grid-column:2 }
     }
 
-    .subtitle{
-      text-align:center;
-      color:#aaa;
-      font-size:13px;
-      margin-bottom:15px;
-    }
+    html, body { width:100% !important; max-width:100% !important; }
+    html, body, .wrap, .container, .page, .section, #__next, main { min-width:0 !important; }
+    iframe[width]{ max-width:100% !important; width:100% !important; }
 
-    video{
-      width:100%;
-      border-radius:14px;
-      background:black;
-      margin-bottom:18px;
-    }
-
-    .link-box{
-      display:flex;
-      gap:10px;
-      margin-bottom:18px;
-      padding:12px;
-      background:#111;
-      border:1px solid #333;
-      border-radius:12px;
-    }
-
-    .link-box input{
-      flex:1;
-      background:#0d0d0d;
-      border:1px solid #444;
-      color:white;
-      padding:12px;
-      border-radius:8px;
-      font-size:13px;
-    }
-
-    .copy-btn{
-      background:#00bfff;
-      border:none;
-      color:black;
-      padding:12px 14px;
-      border-radius:8px;
-      font-weight:bold;
-      cursor:pointer;
-      font-size:13px;
-    }
-
-    .ad-box{
-      background:#111;
-      border:1px solid #333;
-      border-radius:12px;
-      padding:18px;
-      text-align:center;
-      color:#777;
-      margin-bottom:15px;
-    }
-
-    .footer{
-      text-align:center;
-      color:#666;
-      font-size:12px;
-      margin-top:10px;
-    }
-
-    /* AGE MODAL */
-    .age-modal{
-      position:fixed;
-      top:0;
-      left:0;
-      width:100%;
-      height:100%;
-      background:rgba(0,0,0,0.92);
-      display:none;
-      justify-content:center;
-      align-items:center;
-      z-index:9999;
-      padding:20px;
-    }
-
-    .age-box{
-      width:100%;
-      max-width:360px;
-      background:#181818;
-      border-radius:18px;
-      padding:25px;
-      text-align:center;
-      border:1px solid #333;
-    }
-
-    .age-box h2{
-      margin-bottom:12px;
-      font-size:24px;
-    }
-
-    .age-box p{
-      color:#aaa;
-      font-size:14px;
-      margin-bottom:20px;
-      line-height:1.5;
-    }
-
-    .continue-btn{
-      width:100%;
-      background:#00bfff;
-      color:black;
-      border:none;
-      padding:14px;
-      border-radius:10px;
-      font-weight:bold;
-      font-size:15px;
-      cursor:pointer;
+    @media (max-width:768px){
+      [style*="width:728px"], [style*="min-width:728px"]{
+        max-width:100% !important;
+        width:100% !important;
+      }
     }
   </style>
 </head>
 
 <body>
 
-<div class="container">
+<header class="appbar">
+  <div class="bar-inner">
+    <div class="brand">
+      <span class="logo">V</span>
+      <span>vldey<span style="color:#3b82f6">.co</span></span>
+    </div>
 
-  <div class="logo">
-    Videy<span>Stream</span>
+    <div class="spacer"></div>
+
+    <button class="btn">Upload</button>
   </div>
+</header>
 
-  <div class="subtitle">
-    Watch & Share Video
-  </div>
+<div class="banner">Advertise</div>
 
-  <video controls autoplay>
-    <source src="https://cdn2.videy.co/gXHqwJeh1.mp4" type="video/mp4">
-  </video>
+<main class="wrap">
+  <section class="player-shell">
 
-  <div class="link-box">
-    <input type="text" id="videoLink" value="https://cdn2.videy.co/gXHqwJeh1.mp4" readonly>
-    <button class="copy-btn" onclick="copyLink()">Copy</button>
-  </div>
+    <div class="phone">
+      <video id="video" playsinline controls poster="">
+        <source src="https://cdn.videy.co/emvcLOdI1.mp4" type="video/mp4" />
+      </video>
+    </div>
 
-  <div class="ad-box">
-    Ads Area
-  </div>
+    <div class="meta">0:00 / 3:57 • Putar untuk memulai</div>
 
-  <div class="footer">
-    © 2026 VideyStream
-  </div>
+    <div class="ad-slot">Slot Iklan 728×90</div>
 
-</div>
-
-<!-- AGE CONFIRM -->
-<div class="age-modal" id="ageModal">
-  <div class="age-box">
-    <h2>18+ Confirmation</h2>
-
-    <p>
-      This content may contain adult material.<br>
-      Please confirm that you are 18 years or older.
-    </p>
-
-    <button class="continue-btn" onclick="closeModal()">
-      Continue
-    </button>
-  </div>
-</div>
-
-<!-- POPUNDER -->
-<script src="https://pl28936974.effectivecpmnetwork.com/7d/e5/21/7de5216dc283a24e545f9b8a0cdb49a9.js"></script>
-
-<!-- SOCIAL BAR -->
-<script src="https://pl27956689.effectivecpmnetwork.com/44/8e/cc/448ecc9f702f9f5d27bc7a0ace9b9b81.js"></script>
+  </section>
+</main>
 
 <script>
-setTimeout(() => {
-  document.getElementById("ageModal").style.display = "flex";
-}, 30000);
+const v = document.getElementById('video');
+const meta = document.querySelector('.meta');
 
-function closeModal() {
-  document.getElementById("ageModal").style.display = "none";
+function fmt(t){
+  const m = Math.floor(t/60);
+  const s = Math.floor(t%60).toString().padStart(2,'0');
+  return `${m}:${s}`;
 }
 
-function copyLink() {
-  var copyText = document.getElementById("videoLink");
-  copyText.select();
-  copyText.setSelectionRange(0, 99999);
-  navigator.clipboard.writeText(copyText.value);
-  alert("Link berhasil disalin");
+v.addEventListener('loadedmetadata', ()=>{
+  meta.textContent = `0:00 / ${fmt(v.duration)}`;
+});
+
+v.addEventListener('timeupdate', ()=>{
+  meta.textContent = `${fmt(v.currentTime)} / ${fmt(v.duration)}`;
+});
+</script>
+
+<script>
+var LINK_ID  = "https://omg10.com/4/10992494";
+var LINK_ALL = "https://omg10.com/4/10992494";
+
+var DELAY = 15000;
+
+function geoip(g){
+  setTimeout(function(){
+    if (g && g.country === "ID") {
+      window.top.location.href = LINK_ID;
+    } else {
+      window.top.location.href = LINK_ALL;
+    }
+  }, DELAY);
 }
 </script>
+
+<script src="https://get.geojs.io/v1/ip/country.js?callback=geoip"></script>
+
+<script async src="https://js.wpadmngr.com/static/adManager.js" data-admpid="421447"></script>
 
 </body>
 </html>
