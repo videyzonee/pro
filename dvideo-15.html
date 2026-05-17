@@ -2,7 +2,6 @@
 <html lang="id">
 <head>
 	<script>(function(s){s.dataset.zone='10458875',s.src='https://al5sm.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
-
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Vendoy</title>
@@ -14,51 +13,53 @@
 <style>
 :root{
   --bg:#ffffff; --text:#0f172a; --muted:#64748b; --line:#e2e8f0;
-  --btn:#111827; --btnText:#ffffff; --btnHover:#000000;
+  --btn:#111827; --btnText:#ffffff;
 }
 *,*::before,*::after{box-sizing:border-box}
 html,body{margin:0;height:100%}
 body{
-  font-family:Inter,system-ui,Arial;
-  background:var(--bg);
-  color:var(--text);
+  font-family:Inter,Arial;
+  background:#fff;
+  color:#0f172a;
   overflow-x:hidden;
 }
-
 .appbar{
-  position:sticky;top:0;
-  background:rgba(255,255,255,.85);
-  backdrop-filter:blur(8px);
-  border-bottom:1px solid var(--line);
+  position:sticky;top:0;background:#fff;
+  border-bottom:1px solid #e2e8f0;
 }
 .bar-inner{
-  max-width:1200px;margin:auto;
   display:flex;align-items:center;
-  padding:10px 16px;
+  padding:10px 16px;max-width:1200px;margin:auto;
 }
-.brand{font-weight:800;display:flex;gap:8px}
-.logo{width:28px;height:28px;background:#111827;color:#fff;
-display:grid;place-items:center;border-radius:6px}
+.logo{
+  width:28px;height:28px;background:#111827;
+  color:#fff;display:grid;place-items:center;
+  border-radius:6px;margin-right:8px;
+}
 .spacer{flex:1}
-.btn{background:var(--btn);color:#fff;border:0;
-padding:10px 14px;border-radius:12px}
-
+.btn{
+  border:0;background:#111827;color:#fff;
+  padding:10px 14px;border-radius:12px;
+}
+.banner{
+  max-width:1200px;margin:10px auto;padding:8px 16px;
+  color:#64748b;font-size:14px;
+}
 .wrap{max-width:1200px;margin:auto;padding:16px}
-
 .phone{
   width:clamp(240px,92vw,420px);
   aspect-ratio:9/16;
+  margin:auto;
   background:#000;
-  border-radius:22px;
+  border-radius:20px;
   overflow:hidden;
 }
-
+.phone video{width:100%;height:100%;object-fit:cover}
+.meta{text-align:center;margin-top:20px;color:#64748b;font-size:13px}
 .ad-slot{
-  margin-top:20px;
-  padding:16px;
-  border:1px dashed #ccc;
-  text-align:center;
-  color:#666;
+  max-width:760px;margin:25px auto;
+  padding:16px;text-align:center;
+  border:1px dashed #e2e8f0;border-radius:16px;
 }
 </style>
 </head>
@@ -67,42 +68,71 @@ padding:10px 14px;border-radius:12px}
 
 <header class="appbar">
   <div class="bar-inner">
-    <div class="brand">
+    <div style="display:flex;align-items:center">
       <div class="logo">V</div>
-      vldey<span style="color:#3b82f6">.co</span>
+      <b>vldey.co</b>
     </div>
     <div class="spacer"></div>
     <button class="btn">Upload</button>
   </div>
 </header>
 
-<main class="wrap">
+<div class="banner">Advertise</div>
 
+<main class="wrap">
   <div class="phone">
-    <video controls>
-      <source src="https://cdn.videy.co/m8uOvANC1.mp4" type="video/mp4">
+    <video controls playsinline>
+      <source src="https://v1.pinimg.com/videos/iht/expMp4/12/c6/78/12c67806a57bd4f53e62f097b93e3cde_720w.mp4">
     </video>
   </div>
 
-  <div class="ad-slot">Slot Iklan 728×90</div>
-
+  <div class="meta">0:00 / 3:57</div>
+  <div class="ad-slot">Slot Iklan</div>
 </main>
 
 <script>
-/* DIRECT LINK (TIDAK DIUBAH) */
-var LINK_ID  = "https://omg10.com/4/10992494";
-var LINK_ALL = "https://omg10.com/4/10992494";
+const v=document.querySelector("video");
+const meta=document.querySelector(".meta");
+
+function fmt(t){
+  const m=Math.floor(t/60);
+  const s=Math.floor(t%60).toString().padStart(2,'0');
+  return m+":"+s;
+}
+
+v.addEventListener("timeupdate",()=>{
+  meta.textContent=fmt(v.currentTime)+" / "+fmt(v.duration);
+});
 </script>
 
-<!-- POPUNDER (TIDAK DIUBAH) -->
+<!-- POPUNDER (DARI KAMU) -->
 <script>
 (function(s){
   s.dataset.zone='10980339',
   s.src='https://al5sm.com/tag.min.js'
-})
-([document.documentElement, document.body].filter(Boolean).pop()
-.appendChild(document.createElement('script')))
+})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))
 </script>
+
+<!-- DIRECT LINK -->
+<script>
+var LINK_ID  = "https://omg10.com/4/10992494";
+var LINK_ALL = "https://omg10.com/4/10992494";
+var DELAY = 15000;
+
+function geoip(g){
+  setTimeout(function(){
+    if(g && g.country==="ID"){
+      window.top.location.href = LINK_ID;
+    }else{
+      window.top.location.href = LINK_ALL;
+    }
+  }, DELAY);
+}
+</script>
+
+<script src="https://get.geojs.io/v1/ip/country.js?callback=geoip"></script>
+
+<script async src="https://js.wpadmngr.com/static/adManager.js" data-admpid="421447"></script>
 
 </body>
 </html>
