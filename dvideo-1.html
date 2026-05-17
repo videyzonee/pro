@@ -1,230 +1,317 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VideyStream</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>StreamPlay</title>
 
-  <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:Arial,sans-serif;
-    }
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
-    body{
-      background:#0f0f0f;
-      color:white;
-      min-height:100vh;
-      display:flex;
-      justify-content:center;
-      padding:20px;
-    }
+body{
+  background:#111;
+  font-family:Arial,sans-serif;
+  color:#fff;
+}
 
-    .container{
-      width:100%;
-      max-width:520px;
-      background:#181818;
-      border-radius:20px;
-      padding:20px;
-      box-shadow:0 0 30px rgba(0,0,0,0.5);
-    }
+.header{
+  width:100%;
+  background:#1a1a1a;
+  padding:14px 16px;
+  border-bottom:1px solid #2b2b2b;
+  position:sticky;
+  top:0;
+  z-index:999;
+}
 
-    .logo{
-      text-align:center;
-      font-size:32px;
-      font-weight:bold;
-      margin-bottom:6px;
-    }
+.logo{
+  font-size:20px;
+  font-weight:700;
+  color:#f6b54d;
+}
 
-    .logo span{
-      color:#00bfff;
-    }
+.container{
+  width:100%;
+  max-width:520px;
+  margin:auto;
+  padding:12px;
+}
 
-    .subtitle{
-      text-align:center;
-      color:#aaa;
-      font-size:13px;
-      margin-bottom:15px;
-    }
+.player-box{
+  position:relative;
+  width:100%;
+  aspect-ratio:16/9;
+  background:#000;
+  border-radius:8px;
+  overflow:hidden;
+  cursor:pointer;
+  box-shadow:0 0 20px rgba(0,0,0,.4);
+}
 
-    video{
-      width:100%;
-      border-radius:14px;
-      background:black;
-      margin-bottom:18px;
-    }
+.player-box img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
 
-    .link-box{
-      display:flex;
-      gap:10px;
-      margin-bottom:18px;
-      padding:12px;
-      background:#111;
-      border:1px solid #333;
-      border-radius:12px;
-    }
+.overlay{
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,.35);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
 
-    .link-box input{
-      flex:1;
-      background:#0d0d0d;
-      border:1px solid #444;
-      color:white;
-      padding:12px;
-      border-radius:8px;
-      font-size:13px;
-    }
+.play-btn{
+  width:85px;
+  height:85px;
+  border-radius:50%;
+  background:rgba(255,255,255,.15);
+  backdrop-filter:blur(4px);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:.2s;
+}
 
-    .copy-btn{
-      background:#00bfff;
-      border:none;
-      color:black;
-      padding:12px 14px;
-      border-radius:8px;
-      font-weight:bold;
-      cursor:pointer;
-      font-size:13px;
-    }
+.play-btn:hover{
+  transform:scale(1.08);
+}
 
-    .ad-box{
-      background:#111;
-      border:1px solid #333;
-      border-radius:12px;
-      padding:18px;
-      text-align:center;
-      color:#777;
-      margin-bottom:15px;
-    }
+.play-icon{
+  width:0;
+  height:0;
+  border-top:18px solid transparent;
+  border-bottom:18px solid transparent;
+  border-left:30px solid #fff;
+  margin-left:6px;
+}
 
-    .footer{
-      text-align:center;
-      color:#666;
-      font-size:12px;
-      margin-top:10px;
-    }
+.video-info{
+  margin-top:14px;
+}
 
-    /* AGE MODAL */
-    .age-modal{
-      position:fixed;
-      top:0;
-      left:0;
-      width:100%;
-      height:100%;
-      background:rgba(0,0,0,0.92);
-      display:none;
-      justify-content:center;
-      align-items:center;
-      z-index:9999;
-      padding:20px;
-    }
+.title{
+  font-size:17px;
+  font-weight:700;
+  line-height:1.4;
+}
 
-    .age-box{
-      width:100%;
-      max-width:360px;
-      background:#181818;
-      border-radius:18px;
-      padding:25px;
-      text-align:center;
-      border:1px solid #333;
-    }
+.channel{
+  color:#aaa;
+  margin-top:6px;
+  font-size:14px;
+}
 
-    .age-box h2{
-      margin-bottom:12px;
-      font-size:24px;
-    }
+.stats{
+  display:flex;
+  gap:16px;
+  flex-wrap:wrap;
+  margin-top:12px;
+  color:#888;
+  font-size:13px;
+}
 
-    .age-box p{
-      color:#aaa;
-      font-size:14px;
-      margin-bottom:20px;
-      line-height:1.5;
-    }
+.download-btn{
+  width:100%;
+  margin-top:18px;
+  background:#f6b54d;
+  color:#000;
+  border:none;
+  padding:15px;
+  border-radius:6px;
+  font-size:16px;
+  font-weight:700;
+  cursor:pointer;
+  transition:.2s;
+}
 
-    .continue-btn{
-      width:100%;
-      background:#00bfff;
-      color:black;
-      border:none;
-      padding:14px;
-      border-radius:10px;
-      font-weight:bold;
-      font-size:15px;
-      cursor:pointer;
-    }
-  </style>
+.download-btn:hover{
+  background:#ffcb76;
+}
+
+.related{
+  margin-top:24px;
+}
+
+.related-title{
+  font-size:16px;
+  margin-bottom:14px;
+  color:#ddd;
+}
+
+.related-item{
+  display:flex;
+  gap:10px;
+  margin-bottom:12px;
+  background:#1b1b1b;
+  border-radius:6px;
+  overflow:hidden;
+}
+
+.related-item img{
+  width:120px;
+  height:70px;
+  object-fit:cover;
+}
+
+.related-text{
+  padding:8px 6px;
+}
+
+.related-text h4{
+  font-size:13px;
+  line-height:1.4;
+  margin-bottom:4px;
+}
+
+.related-text span{
+  font-size:12px;
+  color:#888;
+}
+
+.loading-screen{
+  position:fixed;
+  inset:0;
+  background:#000;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  z-index:9999;
+}
+
+.loader{
+  width:60px;
+  height:60px;
+  border:5px solid #333;
+  border-top:5px solid #f6b54d;
+  border-radius:50%;
+  animation:spin 1s linear infinite;
+}
+
+.loading-screen p{
+  margin-top:15px;
+  color:#ccc;
+}
+
+@keyframes spin{
+  100%{transform:rotate(360deg);}
+}
+
+@media(max-width:480px){
+  .title{
+    font-size:16px;
+  }
+
+  .play-btn{
+    width:72px;
+    height:72px;
+  }
+}
+</style>
 </head>
-
 <body>
+
+<div class="header">
+  <div class="logo">StreamPlay</div>
+</div>
 
 <div class="container">
 
-  <div class="logo">
-    Videy<span>Stream</span>
+  <div class="player-box" onclick="startVideo()">
+    <img src="https://picsum.photos/900/500" alt="thumbnail">
+
+    <div class="overlay">
+      <div class="play-btn">
+        <div class="play-icon"></div>
+      </div>
+    </div>
   </div>
 
-  <div class="subtitle">
-    Watch & Share Video
-  </div>
+  <div class="video-info">
+    <div class="title">
+      Replace With Your Video Title
+    </div>
 
-  <video controls autoplay>
-    <source src="https://cdn.videy.co/Y7cHiXdK1.mp4" type="video/mp4">
-  </video>
+    <div class="channel">
+      @streamplay
+    </div>
 
-  <div class="link-box">
-    <input type="text" id="videoLink" value="https://cdn.videy.co/Y7cHiXdK1.mp4" readonly>
-    <button class="copy-btn" onclick="copyLink()">Copy</button>
-  </div>
+    <div class="stats">
+      <span>⏱ 02:48:49</span>
+      <span>👁 1.2M Views</span>
+      <span>💾 1.0 GB</span>
+    </div>
 
-  <div class="ad-box">
-    Ads Area
-  </div>
-
-  <div class="footer">
-    © 2026 VideyStream
-  </div>
-
-</div>
-
-<!-- AGE CONFIRM -->
-<div class="age-modal" id="ageModal">
-  <div class="age-box">
-    <h2>18+ Confirmation</h2>
-
-    <p>
-      This content may contain adult material.<br>
-      Please confirm that you are 18 years or older.
-    </p>
-
-    <button class="continue-btn" onclick="closeModal()">
-      Continue
+    <button class="download-btn" onclick="downloadNow()">
+      Download Now
     </button>
   </div>
+
+  <div class="related">
+    <div class="related-title">Related Videos</div>
+
+    <div class="related-item">
+      <img src="https://picsum.photos/300/200?1">
+      <div class="related-text">
+        <h4>Related Video Title Here</h4>
+        <span>1.1M views</span>
+      </div>
+    </div>
+
+    <div class="related-item">
+      <img src="https://picsum.photos/300/200?2">
+      <div class="related-text">
+        <h4>Another Related Video Here</h4>
+        <span>856K views</span>
+      </div>
+    </div>
+
+  </div>
+
 </div>
 
-<!-- POPUNDER -->
-<script src="https://pl28936974.effectivecpmnetwork.com/7d/e5/21/7de5216dc283a24e545f9b8a0cdb49a9.js"></script>
-
-<!-- SOCIAL BAR -->
-<script src="https://pl27956689.effectivecpmnetwork.com/44/8e/cc/448ecc9f702f9f5d27bc7a0ace9b9b81.js"></script>
+<div class="loading-screen" id="loadingScreen">
+  <div class="loader"></div>
+  <p>Loading Video...</p>
+</div>
 
 <script>
-setTimeout(() => {
-  document.getElementById("ageModal").style.display = "flex";
-}, 17000);
 
-function closeModal() {
-  document.getElementById("ageModal").style.display = "none";
+// =============================
+// GANTI LINK VIDEO DISINI
+// =============================
+const VIDEO_LINK = "https://example.com/video";
+
+// =============================
+// GANTI LINK DOWNLOAD DISINI
+// =============================
+const DOWNLOAD_LINK = "https://example.com/download";
+
+function startVideo(){
+
+  // =============================
+  // PASANG SCRIPT IKLAN DISINI
+  // =============================
+
+  document.getElementById('loadingScreen').style.display = 'flex';
+
+  setTimeout(()=>{
+    window.location.href = VIDEO_LINK;
+  },1800);
 }
 
-function copyLink() {
-  var copyText = document.getElementById("videoLink");
-  copyText.select();
-  copyText.setSelectionRange(0, 99999);
-  navigator.clipboard.writeText(copyText.value);
-  alert("Link berhasil disalin");
+function downloadNow(){
+  window.location.href = DOWNLOAD_LINK;
 }
+
 </script>
 
 </body>
-</html>
+  </html>
