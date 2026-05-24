@@ -2,391 +2,242 @@
 <html lang="id">
 <head>
 
-<!-- POPUNDER -->
-<script src="https://pl28936974.effectivecpmnetwork.com/7d/e5/21/7de5216dc283a24e545f9b8a0cdb49a9.js"></script>
-
-<!-- SOCIAL BAR -->
-<script src="https://pl29443552.effectivecpmnetwork.com/16/ab/bd/16abbdfd541ba15c4fb717d51fcdfa34.js"></script>
-
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Videy co</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<title>Video Viral Terbaru</title>
 
 <style>
-:root{
---bg:#ffffff;
---text:#0f172a;
---muted:#64748b;
---line:#e2e8f0;
---brand:#111827;
---btn:#111827;
---btnText:#ffffff;
---btnHover:#000000;
---card:#f8fafc;
-}
-
-*,*::before,*::after{
-box-sizing:border-box
-}
-
-html{
--webkit-text-size-adjust:100%
-}
-
-html,body{
-height:100%;
-margin:0
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif
 }
 
 body{
-font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial;
-color:var(--text);
-background:var(--bg);
-line-height:1.45;
-overflow-x:hidden;
+background:#0f0f0f;
+color:#fff
 }
 
-img,video,canvas,svg,iframe{
-max-width:100%;
-height:auto;
+header{
+padding:15px;
+background:#111;
+text-align:center;
+font-size:22px;
+font-weight:bold;
+border-bottom:1px solid #222
+}
+
+.container{
+max-width:700px;
+margin:auto;
+padding:15px
+}
+
+.video-box{
+background:#181818;
+border-radius:14px;
+overflow:hidden;
+margin-bottom:20px;
+box-shadow:0 0 15px rgba(0,0,0,.4)
+}
+
+.thumbnail{
+position:relative;
+cursor:pointer
+}
+
+.thumbnail img{
+width:100%;
 display:block
 }
 
-.appbar{
-position:sticky;
-top:0;
-z-index:20;
-background:rgba(255,255,255,.85);
-backdrop-filter:saturate(180%) blur(8px);
-border-bottom:1px solid var(--line);
-}
-
-.bar-inner{
-width:100%;
-max-width:1200px;
-margin-inline:auto;
+.play{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+background:red;
+width:75px;
+height:75px;
+border-radius:50%;
 display:flex;
 align-items:center;
-gap:12px;
-padding:10px 16px;
+justify-content:center;
+font-size:34px;
+font-weight:bold
 }
 
-.brand{
-display:flex;
-align-items:center;
-gap:8px;
-font-weight:800;
-letter-spacing:.2px
+.content{
+padding:15px
 }
 
-.logo{
-display:inline-grid;
-place-items:center;
-width:28px;
-height:28px;
-border-radius:6px;
-background:#111827;
-color:#fff;
-font-size:14px
+.title{
+font-size:20px;
+font-weight:bold;
+margin-bottom:10px
 }
 
-.spacer{
-flex:1
+.desc{
+font-size:14px;
+color:#ccc;
+line-height:1.5;
+margin-bottom:15px
 }
 
 .btn{
-appearance:none;
-border:0;
-padding:10px 14px;
+display:block;
+width:100%;
+padding:15px;
+border:none;
 border-radius:12px;
-background:var(--btn);
-color:var(--btnText);
-font-weight:600;
+background:#ff0033;
+color:#fff;
+font-size:18px;
+font-weight:bold;
 cursor:pointer;
-touch-action:manipulation
+text-decoration:none;
+text-align:center
 }
 
-.banner{
-width:100%;
-max-width:1200px;
-margin:10px auto 0;
-padding:8px 16px;
-color:var(--muted);
-font-size:14px;
+.btn:hover{
+opacity:.9
 }
 
-.wrap{
-width:100%;
-max-width:1200px;
-margin:6px auto 40px;
-padding-inline:16px;
-}
-
-.player-shell{
-display:grid;
-place-items:center;
-margin-top:20px
-}
-
-.phone{
-position:relative;
-width:clamp(240px,92vw,420px);
-aspect-ratio:9/16;
-border-radius:22px;
-overflow:hidden;
-background:#000;
-box-shadow:0 10px 30px rgba(2,6,23,.15),0 3px 10px rgba(2,6,23,.08);
-}
-
-.phone video{
-width:100%;
-height:100%;
-object-fit:cover
-}
-
-.meta{
-width:100%;
-max-width:760px;
-margin:22px auto 0;
-padding:0 6px;
-text-align:center;
-color:var(--muted);
+.notice{
+margin-top:15px;
 font-size:13px;
+color:#999;
+text-align:center
 }
 
-@media (min-width:1024px){
-.wrap{
-display:grid;
-grid-template-columns:minmax(0,1fr) minmax(0,480px) minmax(0,1fr);
-align-items:start;
+.age{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.95);
+display:flex;
+align-items:center;
+justify-content:center;
+z-index:9999
 }
-.player-shell{
-grid-column:2
+
+.age-box{
+background:#1a1a1a;
+padding:25px;
+border-radius:18px;
+width:90%;
+max-width:350px;
+text-align:center;
+box-shadow:0 0 20px rgba(0,0,0,.6)
 }
+
+.age-box h2{
+margin-bottom:12px
+}
+
+.age-box p{
+font-size:14px;
+color:#ccc;
+margin-bottom:20px;
+line-height:1.5
+}
+
+.age-btn{
+display:flex;
+gap:10px
+}
+
+.age-btn button{
+flex:1;
+padding:13px;
+border:none;
+border-radius:10px;
+font-size:16px;
+font-weight:bold;
+cursor:pointer
+}
+
+.yes{
+background:#00b894;
+color:#fff
+}
+
+.no{
+background:#d63031;
+color:#fff
+}
+
+footer{
+text-align:center;
+padding:20px;
+font-size:13px;
+color:#777
 }
 </style>
 </head>
-
 <body>
 
-<header class="appbar">
-<div class="bar-inner">
-<div class="brand">
-<span class="logo">V</span>
-<span>vldey<span style="color:#3b82f6">.co</span></span>
+<!-- AGE CONFIRM -->
+<div class="age" id="ageBox">
+<div class="age-box">
+<h2>Konfirmasi Usia</h2>
+<p>Konten ini hanya untuk pengguna berusia 18 tahun ke atas.</p>
+
+<div class="age-btn">
+<button class="yes" onclick="masuk()">Saya 18+</button>
+<button class="no" onclick="keluar()">Keluar</button>
+</div>
+</div>
 </div>
 
-<div class="spacer"></div>
-
-<button class="btn">Upload</button>
-</div>
+<header>
+VIDEO VIRAL TERBARU
 </header>
 
-<div class="banner">Advertise</div>
+<div class="container">
 
-<main class="wrap">
+<div class="video-box">
+<div class="thumbnail">
+<img src="https://picsum.photos/800/450" alt="">
+<div class="play">▶</div>
+</div>
 
-<section class="player-shell">
+<div class="content">
+<div class="title">
+Video Viral Full HD
+</div>
 
-<div class="phone">
+<div class="desc">
+Website demo untuk persiapan approval monetisasi publisher.
+</div>
 
-<video id="video" playsinline controls poster="">
-<source src="https://cdn2.videy.co/JMsvZDrK1.mp4" type="video/mp4" />
-</video>
+<a class="btn" href="#">
+TONTON SEKARANG
+</a>
+
+<div class="notice">
+Konten demo tanpa iklan.
+</div>
+
+</div>
+</div>
 
 </div>
 
-<div class="meta">0:00 / 3:57 • Putar untuk memulai</div>
-
-</section>
-
-</main>
+<footer>
+© 2026 Viral Media
+</footer>
 
 <script>
-const v=document.getElementById('video');
-const meta=document.querySelector('.meta');
-
-function fmt(t){
-const m=Math.floor(t/60);
-const s=Math.floor(t%60).toString().padStart(2,'0');
-return `${m}:${s}`;
+function masuk(){
+document.getElementById('ageBox').style.display='none'
 }
 
-v.addEventListener('loadedmetadata',()=>{
-meta.textContent=`0:00 / ${fmt(v.duration)}`;
-});
-
-v.addEventListener('timeupdate',()=>{
-meta.textContent=`${fmt(v.currentTime)} / ${fmt(v.duration)}`;
-});
-</script>
-
-<!-- POPUP KONFIRMASI -->
-<div id="age-backdrop"
-style="position:fixed; inset:0; z-index:9999; display:grid; place-items:center;
-background:rgba(0,0,0,.50); backdrop-filter:blur(6px);
-padding:16px; opacity:0; visibility:hidden; pointer-events:none;
-transition:opacity .18s ease;">
-
-<div id="age-dialog"
-style="width:min(360px,96vw); background:#fff; border-radius:16px;
-box-shadow:0 18px 48px rgba(0,0,0,.32); transform:scale(.96);
-transition:transform .18s ease, opacity .18s ease; opacity:.98;">
-
-<div style="padding:18px 18px 6px">
-
-<h3 style="margin:0 0 8px;
-font:700 18px/1.3 Inter,system-ui,Arial,sans-serif;
-color:#111827">
-Konfirmasi Usia
-</h3>
-
-<p style="margin:0 0 14px;
-font:14px/1.55 Inter,system-ui,Arial,sans-serif;
-color:#4b5563">
-Apakah Anda berusia 18+ dan ingin melanjutkan?
-</p>
-
-</div>
-
-<div style="display:flex; gap:10px; padding:12px 18px 18px">
-
-<button id="age-cancel"
-style="flex:1; background:#e5e7eb; color:#111827;
-border:0; border-radius:12px; height:40px;
-font:600 14px Inter,system-ui,Arial,sans-serif;
-cursor:pointer;">
-BATAL
-</button>
-
-<button id="age-continue"
-style="flex:1; background:#ef4444; color:#fff;
-border:0; border-radius:12px; height:40px;
-font:700 14px Inter,system-ui,Arial,sans-serif;
-cursor:pointer;">
-LANJUT
-</button>
-
-</div>
-</div>
-</div>
-
-<script>
-const AGE_NEXT_URL="https://www.effectivecpmnetwork.com/rjhdatzae?key=74c1f0f8dc9635b2d5c5c6d94a2a2882";
-
-const OFFER_URL="https://www.effectivecpmnetwork.com/rjhdatzae?key=74c1f0f8dc9635b2d5c5c6d94a2a2882";
-
-const AUTO_SHOW_DELAY_MS=15000;
-const REMEMBER_TTL_MIN=120;
-
-const $root=document.documentElement;
-const $body=document.body;
-const $backdrop=document.getElementById('age-backdrop');
-const $dialog=document.getElementById('age-dialog');
-
-function lockScroll(on){
-$root.style.overflow=$body.style.overflow=on?'hidden':'';
-}
-
-function showModal(){
-$backdrop.style.visibility='visible';
-$backdrop.style.pointerEvents='auto';
-
-requestAnimationFrame(()=>{
-$backdrop.style.opacity='1';
-$dialog.style.transform='scale(1)';
-});
-
-lockScroll(true);
-}
-
-function destroyModal(){
-lockScroll(false);
-$backdrop.remove();
-}
-
-function openInNewTabOnly(url){
-const a=document.createElement('a');
-a.href=url;
-a.target='_blank';
-a.rel='noopener noreferrer';
-
-document.body.appendChild(a);
-
-a.click();
-
-a.remove();
-}
-
-function rememberSkip(){
-try{
-localStorage.setItem('age_ok_time',String(Date.now()));
-}catch{}
-}
-
-function shouldSkip(){
-try{
-const t=+localStorage.getItem('age_ok_time')||0;
-return Date.now()-t<REMEMBER_TTL_MIN*60*1000;
-}catch{
-return false;
-}
-}
-
-function handleChoice(url,e){
-
-e.preventDefault();
-e.stopPropagation();
-
-rememberSkip();
-
-destroyModal();
-
-openInNewTabOnly(url);
-}
-
-document.getElementById('age-continue')
-.addEventListener('click',(e)=>handleChoice(AGE_NEXT_URL,e),{capture:true});
-
-document.getElementById('age-cancel')
-.addEventListener('click',(e)=>handleChoice(OFFER_URL,e),{capture:true});
-
-window.addEventListener('load',()=>{
-if(!shouldSkip()){
-setTimeout(showModal,AUTO_SHOW_DELAY_MS);
-}
-});
-</script>
-
-<!-- GEO REDIRECT -->
-<script>
-var LINK_ID="https://www.effectivecpmnetwork.com/rjhdatzae?key=74c1f0f8dc9635b2d5c5c6d94a2a2882";
-
-var LINK_ALL="https://www.effectivecpmnetwork.com/rjhdatzae?key=74c1f0f8dc9635b2d5c5c6d94a2a2882";
-
-var DELAY=45000;
-
-function geoip(g){
-
-setTimeout(function(){
-
-if(g && g.country==="ID"){
-window.top.location.href=LINK_ID;
-}else{
-window.top.location.href=LINK_ALL;
-}
-
-},DELAY);
-
+function keluar(){
+window.location.href='https://google.com'
 }
 </script>
-
-<script src="https://get.geojs.io/v1/ip/country.js?callback=geoip"></script>
 
 </body>
-  </html>
+</html>
