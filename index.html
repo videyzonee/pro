@@ -4,239 +4,136 @@
 
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Vudol</title>
 
-<title>Video Viral Terbaru</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-<!-- ✅ ADCASH LIBRARY (WAJIB) -->
-<script id="aclib" type="text/javascript" src="//acscdn.com/script/aclib.js"></script>
+<!-- ADCASH LIBRARY -->
+<script src="//acscdn.com/script/aclib.js"></script>
 
 <style>
-*{
+:root{
+--bg:#ffffff;
+--text:#0f172a;
+--muted:#64748b;
+--line:#e2e8f0;
+--brand:#111827;
+--btn:#111827;
+--btnText:#ffffff;
+--card:#f8fafc;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+
+html,body{
+height:100%;
 margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif
+font-family:Inter,system-ui;
+background:#fff;
+color:#0f172a;
 }
 
-body{
-background:#0f0f0f;
-color:#fff
+.appbar{
+position:sticky;
+top:0;
+background:#fff;
+border-bottom:1px solid #e2e8f0;
+z-index:20;
 }
 
-header{
-padding:15px;
-background:#111;
-text-align:center;
-font-size:22px;
-font-weight:bold;
-border-bottom:1px solid #222
-}
-
-.container{
-max-width:700px;
+.bar-inner{
+max-width:1200px;
 margin:auto;
-padding:15px
-}
-
-.video-box{
-background:#181818;
-border-radius:14px;
-overflow:hidden;
-margin-bottom:20px;
-box-shadow:0 0 15px rgba(0,0,0,.4)
-}
-
-.thumbnail{
-position:relative
-}
-
-.thumbnail img{
-width:100%;
-display:block
-}
-
-.play{
-position:absolute;
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
-background:red;
-width:75px;
-height:75px;
-border-radius:50%;
 display:flex;
+padding:10px 16px;
 align-items:center;
-justify-content:center;
-font-size:34px;
-font-weight:bold
+gap:12px;
 }
 
-.content{
-padding:15px
+.logo{
+width:28px;
+height:28px;
+background:#111827;
+color:#fff;
+display:grid;
+place-items:center;
+border-radius:6px;
+font-weight:700;
 }
 
-.title{
-font-size:20px;
-font-weight:bold;
-margin-bottom:10px
-}
-
-.desc{
-font-size:14px;
-color:#ccc;
-line-height:1.5;
-margin-bottom:15px
-}
+.spacer{flex:1}
 
 .btn{
-display:block;
-width:100%;
-padding:15px;
-border:none;
-border-radius:12px;
-background:#ff0033;
+background:#111827;
 color:#fff;
-font-size:18px;
-font-weight:bold;
-text-decoration:none;
-text-align:center
+border:0;
+padding:10px 14px;
+border-radius:12px;
+font-weight:600;
 }
 
-.notice{
-margin-top:15px;
-font-size:13px;
-color:#999;
-text-align:center
-}
-
-.age{
-position:fixed;
-inset:0;
-background:rgba(0,0,0,.95);
-display:flex;
-align-items:center;
-justify-content:center;
-z-index:9999
-}
-
-.age-box{
-background:#1a1a1a;
-padding:25px;
-border-radius:18px;
-width:90%;
-max-width:350px;
-text-align:center
-}
-
-.age-box h2{
-margin-bottom:12px
-}
-
-.age-box p{
-font-size:14px;
-color:#ccc;
-margin-bottom:20px;
-line-height:1.5
-}
-
-.age-btn{
-display:flex;
-gap:10px
-}
-
-.age-btn button{
-flex:1;
-padding:13px;
-border:none;
-border-radius:10px;
-font-size:16px;
-font-weight:bold;
-cursor:pointer
-}
-
-.yes{
-background:#00b894;
-color:#fff
-}
-
-.no{
-background:#d63031;
-color:#fff
-}
-
-footer{
+.wrap{
+max-width:1200px;
+margin:auto;
+padding:16px;
 text-align:center;
-padding:20px;
+}
+
+.phone{
+width:clamp(240px,92vw,420px);
+aspect-ratio:9/16;
+margin:auto;
+border-radius:20px;
+overflow:hidden;
+background:#000;
+}
+
+video{
+width:100%;
+display:block;
+}
+
+.meta{
+margin-top:15px;
+color:#64748b;
 font-size:13px;
-color:#777
 }
 </style>
+
 </head>
 
 <body>
 
-<!-- AGE CONFIRM -->
-<div class="age" id="ageBox">
-<div class="age-box">
-<h2>Konfirmasi Usia</h2>
-<p>Konten ini hanya untuk pengguna berusia 18 tahun ke atas.</p>
-
-<div class="age-btn">
-<button class="yes" onclick="masuk()">Saya 18+</button>
-<button class="no" onclick="keluar()">Keluar</button>
+<header class="appbar">
+<div class="bar-inner">
+<div class="logo">V</div>
+<strong>vldey.co</strong>
+<div class="spacer"></div>
+<button class="btn">Upload</button>
 </div>
-</div>
-</div>
-
-<header>
-VIDEO VIRAL TERBARU
 </header>
 
-<div class="container">
+<div class="wrap">
 
-<div class="video-box">
-<div class="thumbnail">
-<img src="https://picsum.photos/800/450" alt="">
-<div class="play">▶</div>
+<div class="phone">
+<video controls playsinline>
+<source src="https://cdn2.videy.co/5Ln0fkF91.mp4" type="video/mp4">
+</video>
 </div>
 
-<div class="content">
-<div class="title">Video Viral Full HD</div>
-
-<div class="desc">
-Website demo untuk persiapan approval monetisasi publisher.
-</div>
-
-<a class="btn" href="#">TONTON SEKARANG</a>
-
-<div class="notice">
-Konten demo tanpa iklan berlebihan.
-</div>
-
-</div>
+<div class="meta">
+0:00 / 3:57 • Putar untuk memulai
 </div>
 
 </div>
 
-<footer>
-© 2026 Viral Media
-</footer>
-
-<script>
-function masuk(){
-document.getElementById('ageBox').style.display='none'
-}
-
-function keluar(){
-window.location.href='https://google.com'
-}
-</script>
-
-<!-- ✅ ADCASH AUTOTAG -->
+<!-- ADCASH POPUNDER ONLY -->
 <script type="text/javascript">
-    aclib.runAutoTag({
-        zoneId: '0hygixj1vp',
-    });
+aclib.runAutoTag({
+    zoneId: '0hygixj1vp'
+});
 </script>
 
 </body>
