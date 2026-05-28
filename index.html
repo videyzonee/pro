@@ -1,131 +1,117 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Live Streaming Bola</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LIVE</title>
 
-  <!-- POPUNDER -->
-  <script src="https://pl28936974.effectivecpmnetwork.com/7d/e5/21/7de5216dc283a24e545f9b8a0cdb49a9.js"></script>
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
-  <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:Arial,sans-serif;
-    }
+body{
+  background:#000;
+  font-family:Arial,sans-serif;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
 
-    body{
-      background:#0f0f0f;
-      color:#fff;
-    }
+.box{
+  width:100%;
+  max-width:900px;
+  padding:20px;
+}
 
-    .container{
-      width:100%;
-      max-width:900px;
-      margin:auto;
-      min-height:100vh;
-      background:#1a1a1a;
-    }
+.live{
+  position:relative;
+  width:100%;
+  padding-top:56.25%;
+  background:#111;
+  border-radius:12px;
+  overflow:hidden;
+  border:2px solid #00ff8c;
+}
 
-    .header{
-      padding:15px;
-      text-align:center;
-      background:#111;
-      font-size:22px;
-      font-weight:bold;
-    }
+.content{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  gap:20px;
+}
 
-    .live{
-      background:red;
-      padding:4px 10px;
-      border-radius:20px;
-      font-size:12px;
-      margin-left:8px;
-    }
+.live-dot{
+  width:14px;
+  height:14px;
+  background:red;
+  border-radius:50%;
+  animation:pulse 1s infinite;
+}
 
-    .video{
-      position:relative;
-      width:100%;
-      padding-top:56.25%;
-      background:#000;
-    }
+@keyframes pulse{
+  0%{opacity:1;}
+  50%{opacity:.4;}
+  100%{opacity:1;}
+}
 
-    .video iframe{
-      position:absolute;
-      top:0;
-      left:0;
-      width:100%;
-      height:100%;
-      border:none;
-    }
+.watch-btn{
+  background:#00ff8c;
+  color:#000;
+  text-decoration:none;
+  padding:15px 35px;
+  border-radius:8px;
+  font-size:20px;
+  font-weight:bold;
+}
 
-    .info{
-      padding:15px;
-    }
+.watch-btn:hover{
+  background:#00cc75;
+}
 
-    .title{
-      font-size:20px;
-      margin-bottom:8px;
-    }
+@media(max-width:768px){
 
-    .desc{
-      color:#bbb;
-      font-size:14px;
-    }
+.watch-btn{
+  font-size:16px;
+  padding:13px 24px;
+}
 
-    .btn{
-      display:block;
-      width:90%;
-      margin:20px auto;
-      padding:14px;
-      text-align:center;
-      background:red;
-      color:#fff;
-      text-decoration:none;
-      border-radius:10px;
-      font-weight:bold;
-      font-size:18px;
-    }
+}
 
-    .footer{
-      text-align:center;
-      padding:15px;
-      color:#777;
-      font-size:13px;
-    }
-  </style>
+</style>
 </head>
+
 <body>
 
-<div class="container">
+<!-- POPUNDER -->
+<script src="https://pl28936974.effectivecpmnetwork.com/7d/e5/21/7de5216dc283a24e545f9b8a0cdb49a9.js"></script>
 
-  <div class="header">
-    LIVE STREAMING BOLA
-    <span class="live">LIVE</span>
-  </div>
+<div class="box">
 
-  <div class="video">
-    <!-- GANTI LINK STREAM -->
-    <iframe 
-      src="https://play33.tigoals232.com/others/7844-futsal-mbak-adjeng-vs-great-grace-futsal.html"
-      allowfullscreen>
-    </iframe>
-  </div>
+  <div class="live">
 
-  <div class="info">
-    <div class="title">Manchester United vs Liverpool</div>
-    <div class="desc">Live streaming kualitas HD tanpa buffering.</div>
-  </div>
+    <div class="content">
 
-  <!-- SMARTLINK -->
-  <a class="btn" href="https://www.effectivecpmnetwork.com/rjhdatzae?key=74c1f0f8dc9635b2d5c5c6d94a2a2882">
-    TONTON SEKARANG
-  </a>
+      <div class="live-dot"></div>
 
-  <div class="footer">
-    © 2026 Live Bola
+      <!-- SMARTLINK -->
+      <a class="watch-btn"
+      href="https://www.effectivecpmnetwork.com/rjhdatzae?key=74c1f0f8dc9635b2d5c5c6d94a2a2882"
+      target="_blank">
+      ▶ LIVE
+      </a>
+
+    </div>
+
   </div>
 
 </div>
