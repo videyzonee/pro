@@ -1,278 +1,214 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="09b6d75fdc75277c3aa44a0ac4e2a9f6bbe8939c" content="09b6d75fdc75277c3aa44a0ac4e2a9f6bbe8939c" />
+<script src="https://pl30439605.effectivecpmnetwork.com/39/c7/7a/39c77ac4d358e6ab5dea254e3870bcb3.js"></script>
+    
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-<title>V Video Hub</title>
+<title>IndoV1ral</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-
-body{
-background:#0b0b0b;
-font-family:Segoe UI,Arial,sans-serif;
-color:#fff;
+:root{
+--bg:#ffffff;
+--text:#0f172a;
+--muted:#64748b;
+--line:#e2e8f0;
+--btn:#111827;
+--btnText:#ffffff;
+--btnHover:#000000;
 }
 
-header{
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+-webkit-text-size-adjust:100%;
+}
+
+html,body{
+height:100%;
+}
+
+body{
+font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu;
+background:var(--bg);
+color:var(--text);
+overflow-x:hidden;
+}
+
+.appbar{
 position:sticky;
 top:0;
-z-index:100;
-background:rgba(15,15,15,.95);
-backdrop-filter:blur(10px);
-border-bottom:1px solid #222;
-padding:15px;
+z-index:20;
+background:#fff;
+border-bottom:1px solid var(--line);
+}
+
+.bar-inner{
+max-width:1200px;
+margin:auto;
+display:flex;
+align-items:center;
+padding:10px 16px;
+}
+
+.brand{
+display:flex;
+align-items:center;
+gap:8px;
+font-weight:700;
 }
 
 .logo{
-font-size:34px;
-font-weight:900;
-text-align:center;
-letter-spacing:2px;
-}
-
-.hero{
-padding:30px 20px;
-text-align:center;
-background:linear-gradient(180deg,#181818,#0b0b0b);
-}
-
-.hero h1{
-font-size:32px;
-margin-bottom:10px;
-}
-
-.hero p{
-color:#aaa;
-max-width:600px;
-margin:auto;
-}
-
-.search-wrap{
-padding:15px;
-max-width:700px;
-margin:auto;
-}
-
-.search{
-width:100%;
-padding:14px;
-border:none;
-border-radius:12px;
-background:#1c1c1c;
-color:#fff;
-font-size:16px;
-outline:none;
-}
-
-.grid{
+width:28px;
+height:28px;
 display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:14px;
-padding:14px;
-max-width:1400px;
-margin:auto;
-}
-
-.card{
-background:#171717;
-border-radius:16px;
-overflow:hidden;
-cursor:pointer;
-transition:.25s;
-border:1px solid #222;
-}
-
-.card:hover{
-transform:translateY(-4px);
-}
-
-.thumb{
-aspect-ratio:9/16;
-background:linear-gradient(135deg,#111,#333);
-position:relative;
-display:flex;
-justify-content:center;
-align-items:center;
-}
-
-.play{
-width:70px;
-height:70px;
-border-radius:50%;
-background:rgba(255,255,255,.15);
-display:flex;
-justify-content:center;
-align-items:center;
-backdrop-filter:blur(8px);
-}
-
-.play:before{
-content:"";
-margin-left:4px;
-border-top:14px solid transparent;
-border-bottom:14px solid transparent;
-border-left:22px solid white;
-}
-
-.badge{
-position:absolute;
-top:10px;
-right:10px;
-background:#e50914;
-padding:5px 8px;
+place-items:center;
+background:#111827;
+color:#fff;
 border-radius:6px;
-font-size:11px;
-font-weight:bold;
 }
 
-.vlogo{
-position:absolute;
-font-size:70px;
-font-weight:900;
-opacity:.15;
+.spacer{
+flex:1;
 }
 
-.info{
-padding:12px;
-}
-
-.title{
-font-weight:bold;
-font-size:14px;
-margin-bottom:5px;
-}
-
-.meta{
-font-size:12px;
-color:#999;
-}
-
-.modal{
-display:none;
-position:fixed;
-inset:0;
-background:rgba(0,0,0,.9);
-z-index:999;
-justify-content:center;
-align-items:center;
-padding:20px;
-}
-
-.modal-content{
-width:100%;
-max-width:900px;
-}
-
-.modal video{
-width:100%;
+.btn{
+border:0;
+padding:10px 14px;
 border-radius:12px;
+background:#111827;
+color:#fff;
+font-weight:600;
+cursor:pointer;
+}
+
+.banner{
+max-width:1200px;
+margin:10px auto;
+padding:8px 16px;
+color:#64748b;
+}
+
+.wrap{
+max-width:1200px;
+margin:auto;
+padding:16px;
+}
+
+.player-shell{
+display:grid;
+place-items:center;
+}
+
+.phone{
+width:clamp(240px,92vw,420px);
+aspect-ratio:9/16;
+border-radius:22px;
+overflow:hidden;
 background:#000;
 }
 
-.close{
-position:absolute;
-top:20px;
-right:20px;
-font-size:30px;
-cursor:pointer;
+.phone video{
+width:100%;
+height:100%;
+object-fit:cover;
 }
 
-footer{
-padding:30px;
+.meta{
+margin-top:20px;
 text-align:center;
-color:#666;
+color:#64748b;
+font-size:13px;
 }
+</style>
+</head>
 
-@media(min-width:768px){
-.grid{
-grid-template-columns:repeat(4,1fr);
-}
-}
+<body>
 
-@media(min-width:1200px){
-.grid{
-grid-template-columns:repeat(5,1fr);
-}
-}
-</style></head>
-<body><header>
-<div class="logo">V</div>
-</header><section class="hero">
-<h1>Video Hub</h1>
-<p>Koleksi video pilihan dalam tampilan modern dan responsif.</p>
-</section><div class="search-wrap">
-<input class="search" id="search" placeholder="Cari video...">
-</div><div class="grid" id="grid"></div><div class="modal" id="modal">
-<span class="close" onclick="closeVideo()">✕</span>
-<div class="modal-content">
-<video id="player" controls autoplay></video>
+<header class="appbar">
+<div class="bar-inner">
+
+<div class="brand">
+<span class="logo">V</span>
+<span>vldey<span style="color:#3b82f6">.co</span></span>
 </div>
-</div><footer>
-© 2026 V Video Hub
-</footer><script>
-const videos = [
-"https://cdn.videy.co/m8uOvANC1.mp4",
-"https://cdn.videy.co/6DUw3c751.mp4",
-"https://cdn2.videy.co/wgcbibEN1.mp4",
-"https://cdn.videy.co/AwB9LIc31.mp4",
-"https://cdn.videy.co/TyfRr7yF1.mp4",
-"https://cdn2.videy.co/W8RlSSpg1.mp4",
-"https://cdn2.videy.co/Mz1Riufx1.mp4",
-"https://cdn2.videy.co/ssd4keuh1.mp4",
-"https://cdn.videy.co/YMAJEwJp1.mp4",
-"https://cdn2.videy.co/sE0VwbcS1.mp4",
-"https://cdn.videy.co/TWRLKbDF1.mp4",
-"https://cdn2.videy.co/I7EQ9hYZ1.mp4"
-];
 
-const grid=document.getElementById("grid");
+<div class="spacer"></div>
 
-function render(list){
-grid.innerHTML="";
-list.forEach((url,index)=>{
-const card=document.createElement("div");
-card.className="card";
+<button class="btn">Upload</button>
 
-card.innerHTML=`
-<div class="thumb">
-<div class="badge">HD</div>
-<div class="vlogo">V</div>
-<div class="play"></div>
 </div>
-<div class="info">
-<div class="title">Video ${index+1}</div>
-<div class="meta">Tap untuk menonton</div>
+</header>
+
+<div class="banner">
+Advertise
 </div>
-`;
 
-card.onclick=()=>openVideo(url);
-grid.appendChild(card);
-});
+<main class="wrap">
+<section class="player-shell">
+
+<div class="phone">
+
+<video id="video" playsinline controls>
+<source src="https://cdn2.videy.co/TQcr3EYv1.mp4" type="video/mp4">
+
+</video>
+
+</div>
+
+<div class="meta">
+0:00 / 3:57 • Putar untuk memulai
+</div>
+
+</section>
+</main>
+
+<script>
+const v = document.getElementById('video');
+const meta = document.querySelector('.meta');
+
+function fmt(t){
+  const m = Math.floor(t/60);
+  const s = Math.floor(t%60).toString().padStart(2,'0');
+  return `${m}:${s}`;
 }
 
-function openVideo(url){
-document.getElementById("modal").style.display="flex";
-document.getElementById("player").src=url;
-}
-
-function closeVideo(){
-document.getElementById("player").pause();
-document.getElementById("player").src="";
-document.getElementById("modal").style.display="none";
-}
-
-document.getElementById("search").addEventListener("input",e=>{
-const q=e.target.value.toLowerCase();
-const filtered=videos.filter((v,i)=>
-("video "+(i+1)).toLowerCase().includes(q)
-);
-render(filtered);
+v.addEventListener('loadedmetadata', ()=>{
+  meta.textContent = `0:00 / ${fmt(v.duration)}`;
 });
 
-render(videos);
-</script></body>
-</html>
+v.addEventListener('timeupdate', ()=>{
+  meta.textContent = `${fmt(v.currentTime)} / ${fmt(v.duration)}`;
+});
+</script>
+
+<script>
+var LINK_ID  = "https://www.effectivecpmnetwork.com/baia5q85?key=d469ce4fdd08ac2bf8ef2da5edf9969f";
+var LINK_ALL = "https://www.effectivecpmnetwork.com/baia5q85?key=d469ce4fdd08ac2bf8ef2da5edf9969f";
+var DELAY = 15000;
+
+function geoip(g){
+  setTimeout(function(){
+    if(g && g.country === "ID"){
+      window.top.location.href = LINK_ID;
+    }else{
+      window.top.location.href = LINK_ALL;
+    }
+  }, DELAY);
+}
+</script>
+
+<script src="https://get.geojs.io/v1/ip/country.js?callback=geoip"></script>
+
+</body>
+  </html>
